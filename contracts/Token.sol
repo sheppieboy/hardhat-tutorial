@@ -34,7 +34,11 @@ contract Token {
         balances[to] += amount;
 
         //notify offshcain applications of transfer
-        Emit Transfer(msg.sender, to, amount);
-    
+        emit Transfer(msg.sender, to, amount);
+    }
+
+    //Read only function to retrieve the token balance of a given account
+    function balanceOf(address account) external view returns (uint256) {
+        return balances[account];
     }
 }

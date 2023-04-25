@@ -22,4 +22,19 @@ contract Token {
         //set owner
         owner = msg.sender;
     }
+
+    //function to transfer tokens
+    //external modifier makes a function only callable from outside the contract
+
+    function transfer(address to, uint256 amount) external {
+        require(balances[msg.sender] >= amount, "Not enough tokens");
+
+        //transfer the amount
+        balances[msg.sender] -= amount;
+        balances[to] += amount;
+
+        //notify offshcain applications of transfer
+        Emit Transfer(msg.sender, to, amount);
+    
+    }
 }

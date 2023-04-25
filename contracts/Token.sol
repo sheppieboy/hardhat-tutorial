@@ -5,7 +5,7 @@ contract Token {
     string public name = "Practice token";
     string public symbal = "PT";
 
-    uint256 totalSupply = 1000000;
+    uint256 public totalSupply = 1000000;
 
     address public owner;
 
